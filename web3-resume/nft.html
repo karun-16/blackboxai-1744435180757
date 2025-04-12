@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT Skills - Web3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/aptos@1.3.16/dist/index.global.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#000000',
+                        secondary: '#1a1a1a',
+                        accent: '#00f2fe',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-accent">Web3</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-white hover:text-accent transition">Home</a>
+                    <a href="resume.html" class="text-white hover:text-accent transition">Resume Builder</a>
+                    <a href="nft.html" class="text-accent">NFT Skills</a>
+                    <a href="dashboard.html" class="text-white hover:text-accent transition">Dashboard</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-white">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-12">
+        <div class="container mx-auto px-6">
+            <!-- Wallet Connection -->
+            <div class="mb-12 text-center">
+                <h1 class="text-4xl font-bold mb-6">NFT Skill Badges</h1>
+                <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Mint your skills as verifiable NFTs on the Aptos blockchain. These badges serve as proof of your expertise and can be showcased on your resume.</p>
+                <button id="connectWallet" class="bg-accent text-black px-8 py-3 rounded-lg font-semibold hover:bg-accent/90 transition">
+                    <i class="fas fa-wallet mr-2"></i>Connect Wallet
+                </button>
+                <p id="walletAddress" class="hidden mt-4 text-sm text-gray-400"></p>
+            </div>
+
+            <!-- Skill Badges Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="skillBadges">
+                <!-- Web Development Badge -->
+                <div class="bg-secondary rounded-xl overflow-hidden hover:transform hover:scale-105 transition duration-300">
+                    <img src="https://images.pexels.com/photos/11035471/pexels-photo-11035471.jpeg" alt="Web Development" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Web Development</h3>
+                        <p class="text-gray-400 mb-4">Full-stack web development skills including frontend and backend technologies.</p>
+                        <button class="mint-badge w-full bg-accent text-black px-4 py-2 rounded-lg font-semibold hover:bg-accent/90 transition" data-skill="web-development">
+                            <i class="fas fa-cube mr-2"></i>Mint Badge
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Blockchain Development Badge -->
+                <div class="bg-secondary rounded-xl overflow-hidden hover:transform hover:scale-105 transition duration-300">
+                    <img src="https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg" alt="Blockchain Development" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Blockchain Development</h3>
+                        <p class="text-gray-400 mb-4">Smart contract development and blockchain architecture expertise.</p>
+                        <button class="mint-badge w-full bg-accent text-black px-4 py-2 rounded-lg font-semibold hover:bg-accent/90 transition" data-skill="blockchain">
+                            <i class="fas fa-cube mr-2"></i>Mint Badge
+                        </button>
+                    </div>
+                </div>
+
+                <!-- UI/UX Design Badge -->
+                <div class="bg-secondary rounded-xl overflow-hidden hover:transform hover:scale-105 transition duration-300">
+                    <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg" alt="UI/UX Design" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">UI/UX Design</h3>
+                        <p class="text-gray-400 mb-4">User interface and experience design with modern design principles.</p>
+                        <button class="mint-badge w-full bg-accent text-black px-4 py-2 rounded-lg font-semibold hover:bg-accent/90 transition" data-skill="ui-ux">
+                            <i class="fas fa-cube mr-2"></i>Mint Badge
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cloud Computing Badge -->
+                <div class="bg-secondary rounded-xl overflow-hidden hover:transform hover:scale-105 transition duration-300">
+                    <img src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg" alt="Cloud Computing" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Cloud Computing</h3>
+                        <p class="text-gray-400 mb-4">Cloud infrastructure and DevOps expertise across major platforms.</p>
+                        <button class="mint-badge w-full bg-accent text-black px-4 py-2 rounded-lg font-semibold hover:bg-accent/90 transition" data-skill="cloud">
+                            <i class="fas fa-cube mr-2"></i>Mint Badge
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Data Science Badge -->
+                <div class="bg-secondary rounded-xl overflow-hidden hover:transform hover:scale-105 transition duration-300">
+                    <img src="https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg" alt="Data Science" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Data Science</h3>
+                        <p class="text-gray-400 mb-4">Data analysis, machine learning, and statistical modeling skills.</p>
+                        <button class="mint-badge w-full bg-accent text-black px-4 py-2 rounded-lg font-semibold hover:bg-accent/90 transition" data-skill="data-science">
+                            <i class="fas fa-cube mr-2"></i>Mint Badge
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cybersecurity Badge -->
+                <div class="bg-secondary rounded-xl overflow-hidden hover:transform hover:scale-105 transition duration-300">
+                    <img src="https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg" alt="Cybersecurity" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Cybersecurity</h3>
+                        <p class="text-gray-400 mb-4">Network security, penetration testing, and security architecture.</p>
+                        <button class="mint-badge w-full bg-accent text-black px-4 py-2 rounded-lg font-semibold hover:bg-accent/90 transition" data-skill="cybersecurity">
+                            <i class="fas fa-cube mr-2"></i>Mint Badge
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Minting Modal -->
+    <div id="mintingModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center">
+        <div class="bg-secondary rounded-xl p-8 max-w-md w-full mx-4">
+            <h3 class="text-2xl font-bold mb-4">Minting Skill Badge</h3>
+            <div id="mintingStatus" class="mb-6">
+                <p class="text-gray-400">Preparing to mint your skill badge...</p>
+                <div class="mt-4 flex items-center justify-center">
+                    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-accent"></div>
+                </div>
+            </div>
+            <div class="flex justify-end">
+                <button id="closeMintingModal" class="text-gray-400 hover:text-white transition">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-secondary py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-2xl font-bold text-accent mb-4 md:mb-0">Web3</div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-accent transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-400">
+                <p>&copy; 2024 Web3 Resume Builder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/nft.js"></script>
+</body>
+</html>

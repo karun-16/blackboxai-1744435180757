@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Resume Builder & NFT Skills Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#000000',
+                        secondary: '#1a1a1a',
+                        accent: '#00f2fe',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-accent">Web3</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-white hover:text-accent transition">Home</a>
+                    <a href="resume.html" class="text-white hover:text-accent transition">Resume Builder</a>
+                    <a href="nft.html" class="text-white hover:text-accent transition">NFT Skills</a>
+                    <a href="dashboard.html" class="text-white hover:text-accent transition">Dashboard</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-white">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-black/70"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                    Build Your Future with <span class="text-accent">Web3</span> Resume
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-300">
+                    Create professional resumes and mint your skills as NFT badges on the Aptos blockchain.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="resume.html" class="bg-accent text-black px-8 py-3 rounded-lg font-semibold hover:bg-accent/90 transition">
+                        Build Resume
+                    </a>
+                    <a href="nft.html" class="bg-white/10 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/20 transition backdrop-blur-sm">
+                        Mint NFT Skills
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-secondary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Why Choose Web3?</h2>
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Feature 1 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-accent rounded-full flex items-center justify-center">
+                        <i class="fas fa-file-alt text-2xl text-black"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Professional Resume Builder</h3>
+                    <p class="text-gray-400">Create stunning resumes with our easy-to-use builder. Choose from modern templates and get hired faster.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-accent rounded-full flex items-center justify-center">
+                        <i class="fas fa-cube text-2xl text-black"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">NFT Skill Badges</h3>
+                    <p class="text-gray-400">Mint your skills as verifiable NFTs on the Aptos blockchain. Showcase your expertise with blockchain-backed credentials.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-accent rounded-full flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-2xl text-black"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Secure & Verified</h3>
+                    <p class="text-gray-400">Your credentials are secured by blockchain technology. Share your verified skills with potential employers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-black relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg')] bg-cover bg-center opacity-20"></div>
+        <div class="container mx-auto px-6 relative">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Stand Out?</h2>
+                <p class="text-xl text-gray-400 mb-8">Join the future of professional networking with blockchain-verified credentials.</p>
+                <a href="resume.html" class="inline-block bg-accent text-black px-8 py-3 rounded-lg font-semibold hover:bg-accent/90 transition">
+                    Get Started Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-2xl font-bold text-accent mb-4 md:mb-0">Web3</div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-accent transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-400">
+                <p>&copy; 2024 Web3 Resume Builder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

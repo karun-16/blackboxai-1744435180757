@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Web3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#000000',
+                        secondary: '#1a1a1a',
+                        accent: '#00f2fe',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-accent">Web3</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-white hover:text-accent transition">Home</a>
+                    <a href="resume.html" class="text-white hover:text-accent transition">Resume Builder</a>
+                    <a href="nft.html" class="text-white hover:text-accent transition">NFT Skills</a>
+                    <a href="dashboard.html" class="text-accent">Dashboard</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-white">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Sidebar -->
+                <div class="md:w-1/4">
+                    <div class="bg-secondary rounded-xl p-6 sticky top-24">
+                        <div class="text-center mb-6">
+                            <div class="w-24 h-24 bg-accent rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i class="fas fa-user text-4xl text-black"></i>
+                            </div>
+                            <h2 class="text-xl font-semibold" id="userName">User Name</h2>
+                            <p class="text-gray-400 text-sm" id="userEmail">user@example.com</p>
+                        </div>
+                        <div class="space-y-2">
+                            <button class="w-full py-2 px-4 rounded-lg bg-black hover:bg-black/80 transition text-left">
+                                <i class="fas fa-file-alt mr-2"></i>Resumes
+                            </button>
+                            <button class="w-full py-2 px-4 rounded-lg hover:bg-black/80 transition text-left">
+                                <i class="fas fa-cube mr-2"></i>NFT Badges
+                            </button>
+                            <button class="w-full py-2 px-4 rounded-lg hover:bg-black/80 transition text-left">
+                                <i class="fas fa-cog mr-2"></i>Settings
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content Area -->
+                <div class="md:w-3/4">
+                    <!-- Resumes Section -->
+                    <section class="mb-12">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-2xl font-bold">Your Resumes</h2>
+                            <a href="resume.html" class="text-accent hover:text-accent/80 transition">
+                                <i class="fas fa-plus mr-2"></i>Create New
+                            </a>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6" id="resumesList">
+                            <!-- Resume cards will be dynamically inserted here -->
+                        </div>
+                    </section>
+
+                    <!-- NFT Badges Section -->
+                    <section>
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-2xl font-bold">NFT Skill Badges</h2>
+                            <a href="nft.html" class="text-accent hover:text-accent/80 transition">
+                                <i class="fas fa-plus mr-2"></i>Mint New
+                            </a>
+                        </div>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="badgesList">
+                            <!-- NFT badge cards will be dynamically inserted here -->
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-2xl font-bold text-accent mb-4 md:mb-0">Web3</div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-accent transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-400">
+                <p>&copy; 2024 Web3 Resume Builder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

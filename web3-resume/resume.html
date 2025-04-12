@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Web3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#000000',
+                        secondary: '#1a1a1a',
+                        accent: '#00f2fe',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-accent">Web3</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-white hover:text-accent transition">Home</a>
+                    <a href="resume.html" class="text-accent">Resume Builder</a>
+                    <a href="nft.html" class="text-white hover:text-accent transition">NFT Skills</a>
+                    <a href="dashboard.html" class="text-white hover:text-accent transition">Dashboard</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-white">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Form Section -->
+                <div class="lg:w-1/2">
+                    <div class="bg-secondary rounded-xl p-6">
+                        <h2 class="text-2xl font-bold mb-6">Build Your Resume</h2>
+                        
+                        <!-- Personal Information -->
+                        <div class="mb-8">
+                            <h3 class="text-lg font-semibold mb-4 text-accent">Personal Information</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Full Name</label>
+                                    <input type="text" id="fullName" class="w-full bg-black border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-accent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Email</label>
+                                    <input type="email" id="email" class="w-full bg-black border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-accent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Phone</label>
+                                    <input type="tel" id="phone" class="w-full bg-black border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-accent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Location</label>
+                                    <input type="text" id="location" class="w-full bg-black border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-accent">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Work Experience -->
+                        <div class="mb-8">
+                            <h3 class="text-lg font-semibold mb-4 text-accent">Work Experience</h3>
+                            <div id="workExperience" class="space-y-6">
+                                <div class="work-entry bg-black/50 p-4 rounded-lg">
+                                    <div class="space-y-4">
+                                        <div>
+                                            <label class="block text-sm font-medium mb-2">Company Name</label>
+                                            <input type="text" class="company-name w-full bg-black border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-accent">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium mb-2">Position</label>
+                                            <input type="text" class="position w-full bg-black border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-accent">
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <label class="block text-sm font-medium mb-2">Start Date</label>
+                                                <input type="month" class="start-date w-full bg-black border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-accent">
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium mb-2">End Date</label>
+                                                <input type="month" class="end-date w-full bg-black border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-accent">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium mb-2">Description</label>
+                                            <textarea class="description w-full bg-black border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-accent" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="addWork" class="mt-4 text-accent hover:text-accent/80 transition">
+                                <i class="fas fa-plus mr-2"></i>Add More Experience
+                            </button>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="mb-8">
+                            <h3 class="text-lg font-semibold mb-4 text-accent">Education</h3>
+                            <div id="education" class="space-y-6">
+                                <div class="education-entry bg-black/50 p-4 rounded-lg">
+                                    <div class="space-y-4">
+                                        <div>
+                                            <label class="block text-sm font-medium mb-2">School/University</label>
+                                            <input type="text" class="school-name w-full bg-black border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-accent">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium mb-2">Degree</label>
+                                            <input type="text" class="degree w-full bg-black border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-accent">
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <label class="block text-sm font-medium mb-2">Start Date</label>
+                                                <input type="month" class="edu-start-date w-full bg-black border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-accent">
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium mb-2">End Date</label>
+                                                <input type="month" class="edu-end-date w-full bg-black border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-accent">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="addEducation" class="mt-4 text-accent hover:text-accent/80 transition">
+                                <i class="fas fa-plus mr-2"></i>Add More Education
+                            </button>
+                        </div>
+
+                        <!-- Skills -->
+                        <div class="mb-8">
+                            <h3 class="text-lg font-semibold mb-4 text-accent">Skills</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Skills (comma-separated)</label>
+                                    <textarea id="skills" class="w-full bg-black border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-accent" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="flex gap-4">
+                            <button id="generatePDF" class="bg-accent text-black px-6 py-2 rounded-lg font-semibold hover:bg-accent/90 transition">
+                                <i class="fas fa-download mr-2"></i>Download PDF
+                            </button>
+                            <button id="saveResume" class="bg-white/10 text-white px-6 py-2 rounded-lg font-semibold hover:bg-white/20 transition">
+                                <i class="fas fa-save mr-2"></i>Save Draft
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preview Section -->
+                <div class="lg:w-1/2">
+                    <div class="bg-white text-black p-8 rounded-xl shadow-xl" id="resumePreview">
+                        <div class="border-b-2 border-gray-200 pb-6 mb-6">
+                            <h1 id="previewName" class="text-3xl font-bold mb-2">Your Name</h1>
+                            <div class="text-gray-600 space-y-1">
+                                <p id="previewEmail"><i class="fas fa-envelope mr-2"></i>email@example.com</p>
+                                <p id="previewPhone"><i class="fas fa-phone mr-2"></i>Phone Number</p>
+                                <p id="previewLocation"><i class="fas fa-map-marker-alt mr-2"></i>Location</p>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <h2 class="text-xl font-bold mb-4 text-gray-800">Work Experience</h2>
+                            <div id="previewWork" class="space-y-4">
+                                <!-- Work experience entries will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <h2 class="text-xl font-bold mb-4 text-gray-800">Education</h2>
+                            <div id="previewEducation" class="space-y-4">
+                                <!-- Education entries will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-xl font-bold mb-4 text-gray-800">Skills</h2>
+                            <div id="previewSkills" class="flex flex-wrap gap-2">
+                                <!-- Skills will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-2xl font-bold text-accent mb-4 md:mb-0">Web3</div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-accent transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-400">
+                <p>&copy; 2024 Web3 Resume Builder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/resume.js"></script>
+</body>
+</html>
